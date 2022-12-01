@@ -11,13 +11,7 @@ class MainController extends Controller {
   }
 
   public function users() {
-    return User::get()->map(function (User $user) {
-      return [
-        'id' => $user->id,
-        'name' => $user->name,
-        'role' => $user->role->name,
-      ];
-    });
+    return User::getCacheUsersPage();
   }
 
   public function user($id) {
